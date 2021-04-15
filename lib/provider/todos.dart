@@ -1,67 +1,38 @@
 import 'package:flutter/material.dart';
+
+import '../api/firebase_api.dart';
 import '../models/todo.dart';
 
 class TodosProvider extends ChangeNotifier {
-  List<Todo> _todos = [
-    Todo(
-      id: DateTime.now().toIso8601String(),
-      createdTime: DateTime.now(),
-      title: 'Woi test'
-    ),
-    Todo(
-      id: DateTime.now().toIso8601String(),
-      createdTime: DateTime.now(),
-      title: 'Woi test 2',
-      description: 'Bodoamat'
-    ),
-    Todo(
-      id: DateTime.now().toIso8601String(),
-      createdTime: DateTime.now(),
-      title: 'Ini lagi',
-      description: 'Dah lah'
-    ),
-    Todo(
-      id: DateTime.now().toIso8601String(),
-      createdTime: DateTime.now(),
-      title: 'Sahur woy',
-      description: 'Dah lah'
-    ),
-    Todo(
-      id: DateTime.now().toIso8601String(),
-      createdTime: DateTime.now(),
-      title: 'Astaga',
-      description: 'Sip oke'
-    ),
-    Todo(
-      id: DateTime.now().toIso8601String(),
-      createdTime: DateTime.now(),
-      title: 'Mantap',
-      description: 'Mantap Mantap'
-    ),
-    Todo(
-      id: DateTime.now().toIso8601String(),
-      createdTime: DateTime.now(),
-      title: 'Hehe',
-      description: 'Gabut'
-    ),
-  ];
+  List<Todo> _todos = [];
 
   List<Todo> get todos => _todos.where((el) => el.isDone == false).toList();
   List<Todo> get todosCompleted => _todos.where((el) => el.isDone == true).toList();
+
+  void setTodos(List<Todo> todos) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _todos = todos;
+      notifyListeners();
+    });
+  }
   
   void addTodo(Todo todo) {
-    _todos.add(todo);
-    notifyListeners();
+    FirebaseApi.createTodo(todo);
+
+    // _todos.add(todo);
+    // notifyListeners();
   }
 
   void removeTodo(Todo todo) {
-    _todos.removeWhere((element) => element.id == todo.id);
-    notifyListeners();
+    FirebaseApi.deleteTodo(todo);
+
+    // _todos.removeWhere((element) => element.id == todo.id);
+    // notifyListeners();
   }
 
   bool toggleTodoStatus(Todo todo) {
     todo.isDone = !todo.isDone;
-    notifyListeners();
+    FirebaseApi.updateTodo(todo);
 
     return todo.isDone;
   }
@@ -70,7 +41,7 @@ class TodosProvider extends ChangeNotifier {
     todo.title = title;
     todo.description = description;
     
-    notifyListeners();
+    FirebaseApi.updateTodo(todo);
   }
 
 }
