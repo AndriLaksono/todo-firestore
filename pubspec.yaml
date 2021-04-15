@@ -10,7 +10,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  cloud_firestore: ^1.0.5
   cupertino_icons: ^1.0.2
+  firebase_core: ^1.0.3
   flutter_slidable: ^0.6.0
   provider: ^5.0.0
 

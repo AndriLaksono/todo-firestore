@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.todos_app">
+    package="com.xurya.onmdev">
    <application
         android:label="todos_app"
         android:icon="@mipmap/ic_launcher">

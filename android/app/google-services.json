@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "247300049233",
+    "project_id": "onm-app-dev",
+    "storage_bucket": "onm-app-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:247300049233:android:abe7c119eac8d330d3eb70",
+        "android_client_info": {
+          "package_name": "com.xurya.onmdev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "247300049233-7jbgds6jtv7ge3ja53d6dt1ch84f8v19.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjICPuSYtQfCfdhcSNufHmzDCwZcWYgS4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "247300049233-7jbgds6jtv7ge3ja53d6dt1ch84f8v19.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
